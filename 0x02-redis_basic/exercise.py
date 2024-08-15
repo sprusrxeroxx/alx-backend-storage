@@ -8,7 +8,7 @@ class Cache:
         self._redis = redis.Redis(host='localhost', port=6379, db=0)
         self._redis.flushdb()
         
-    def store(self, data):
+    def store(self, data:str float int bytes)->str:
         """A method that takes in a data arguement, assigns a randomly generated key and returns that key"""
         self.key = str(uuid4())
         self.set(key, data)
