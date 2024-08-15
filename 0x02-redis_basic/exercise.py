@@ -14,7 +14,7 @@ class Cache:
     def store(self, data:Union[str,float,int,bytes])->str:
         """A method that takes in a data arguement, assigns a randomly generated key and returns that key"""
         key = str(uuid4())
-        self._redis.set(key, json.dump(data))
+        self._redis.set(key, json.dumps(data))
         return (key)
 
     def get(self, key, fn):
