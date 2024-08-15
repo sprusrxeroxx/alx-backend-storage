@@ -14,3 +14,8 @@ class Cache:
         self.set(key, data)
 
         return (key)
+
+    def get(self, key, fn):
+        self.fn = type(key)
+        
+        pass
