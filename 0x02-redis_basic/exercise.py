@@ -33,3 +33,16 @@ class Cache:
             print("Error retrieving data : {e}")
             return None
 
+    def get_str(self, key: str) -> str:
+        """Retrieves data from Redis as a string."""
+        value = self.get(key)
+        if value is None:
+            return ""  # Or handle missing value as needed
+        return value.decode('utf-8')
+
+    def get_int(self, key: str) -> int:
+        """Retrieves data from Redis as an integer."""
+        value = self.get(key)
+        if value is None:
+            return 0  # Or handle missing value as needed
+        return int(value)
