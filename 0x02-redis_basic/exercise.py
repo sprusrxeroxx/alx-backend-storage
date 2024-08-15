@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 from uuid import uuid4
 from typing import Union
+
+import json
 import redis
 
 class Cache:
@@ -12,7 +14,7 @@ class Cache:
     def store(self, data:Union[str,float,int,bytes])->str:
         """A method that takes in a data arguement, assigns a randomly generated key and returns that key"""
         self.key = str(uuid4())
-        self.set([key, data])
+        self._redis.set(key, json.dump(data))
 
         return (key)
 
