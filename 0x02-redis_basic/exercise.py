@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from uuid import uuid4
-from typing import Union
+from typing import Union, Callable
 
 import redis
 
@@ -16,6 +16,20 @@ class Cache:
         self._redis.set(key, data)
         return (key)
 
-    def get(self, key, fn):
-        self.fn = type(key)
-        pass
+    def get(self, key, fn:Callable==None)->Union[any, None]:
+        try:
+            data = self._redis.get(key)
+            
+            if data is None:
+                return None
+
+            if fn:
+                return fn(data)
+                
+            else:
+                return data
+
+        except Exception as e:
+            print("Error retrieving data : {e}")
+            return None
+
