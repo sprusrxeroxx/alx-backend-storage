@@ -4,7 +4,7 @@ Main file
 """
 import redis
 
-Cache = __import__('0x02-redis_basic/exercise').Cache
+Cache = __import__('0x02-redis_basic.exercise').Cache
 
 cache = Cache()
 
