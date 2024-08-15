@@ -12,7 +12,7 @@ class Cache:
     def store(self, data:Union[str,float,int,bytes])->str:
         """A method that takes in a data arguement, assigns a randomly generated key and returns that key"""
         self.key = str(uuid4())
-        self.set(key, data)
+        self.set([key, data])
 
         return (key)
 
