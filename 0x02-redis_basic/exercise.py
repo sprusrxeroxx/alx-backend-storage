@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from uuid import uuid4
+from typing import Union
 import redis
 
 class Cache:
